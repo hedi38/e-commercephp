@@ -1,3 +1,9 @@
+<?php
+require('header.php');
+require('footer.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,22 +17,7 @@
     <title>meilleur site e-commerce</title>
 </head>
 <body>
-<div>
-
-    <?php
-
-    require('header.php');
-    require('catalogue.php');
-    require('multidimensional-catalog.php');
-    require('footer.php');
-    ?>
-
-</div>
-
-<!-- Bootstrap JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-</script>
-<!-- Bootstrap JavaScript -->
+<p> EROOR 404 : Quantité article negative</p>
+<img src="image" alt="" height="" width="" >
 </body>
 </html>

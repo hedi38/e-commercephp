@@ -1,8 +1,7 @@
 <?php
 require('my-function.php');
-require ('catalogue.php');
+require('catalogue.php');
 global $products;
-$total=$_POST['quantity'];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,23 +13,24 @@ $total=$_POST['quantity'];
 </head>
 <body>
 
- <?php foreach ( $products as $key => $product ){ ?>
-     <div>
+<?php foreach ($products as $key => $product) { ?>
+    <div>
         <h1>Article <?= $product["name"] ?>  </h1>
-         <p> Prix:<?php formatPrice($product["price"]) ?> </p>
-         <p> Prix HT:<?php formatPrice(priceExcludingVAT($product["price"],$total)) ?> </p>
-         <p> Poids:<?= $product["weight"] ?> </p>
-         <p>  Avec reduction:<?php formatPrice(discountedPrice($product["price"] , $product["discount"]))?> </p>
-         <p>  Avec HT reduction:<?php formatPrice (discountedPrice(priceExcludingVAT($product["price"],$total),$product["discount"]))?> </p>
-         <img src=" <?= $product["picture_url"]?>" width="300" height="180" alt="photo console">
-         <form method="post" action="panier.php">
-             <label for="quantity"> quantity</label>
-              <input type="number" name="quantity" min="1" max="10">
-             <input type="hidden"  name="valeur" value="<?= $key ?>">
-             <br>
-             <input type="submit" value="COMMANDER">
-         </form>
-     </div>
+        <p> Prix:<?php formatPrice($product["price"]) ?> </p>
+        <p> Prix HT:<?php formatPrice(priceExcludingVAT($product["price"])) ?> </p>
+        <p> Poids:<?= $product["weight"] ?> </p>
+        <p> Avec reduction:<?php formatPrice(discountedPrice($product["price"], $product["discount"])) ?> </p>
+        <p> Avec HT
+            reduction:<?php formatPrice(discountedPrice(priceExcludingVAT($product["price"]), $product["discount"])) ?> </p>
+        <img src=" <?= $product["picture_url"] ?>" width="300" height="180" alt="photo console">
+        <form method="post" action="panier.php">
+            <label for="quantity"> quantity</label>
+            <input type="number" name="quantity[]" min="-10" max="10">
+            <input type="hidden" name="valeur" value="<?= $key ?>">
+            <br>
+            <input type="submit" value="COMMANDER">
+        </form>
+    </div>
 <?php } ?>
 
 </body>

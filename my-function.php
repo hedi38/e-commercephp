@@ -9,10 +9,10 @@ function formatPrice($price)
 
 }
 
-function priceExcludingVAT($price,$total, int $tva = 20)
+function priceExcludingVAT($price, int $tva = 20)
 {
 
-    return ((100 * $price) / (100 + $tva)) * $total;
+    return (100 * $price) / (100 + $tva);
 }
 
 function discountedPrice($price, $discount)
@@ -48,3 +48,17 @@ function priceTransport($price, $weight, $total): bool
 
     return $price;
 }
+function checkQuantity($total): void{
+    if($total<1){
+        header("Location: http://localhost/e-commercephp/404.php");
+        exit;
+    }
+}
+function checkIssetPostKey($key,$total){
+
+    if (!isset($key) || !isset($total)){
+        header("Location: http://localhost/e-commercephp/index.php");
+        exit;
+    }
+}
+
