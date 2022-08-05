@@ -14,8 +14,8 @@
 <div>
 
     <?php
+
     require('header.php');
-    //require('item.php');
     require('multidimensional-catalog.php');
     require('footer.php');
     ?>
